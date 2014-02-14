@@ -1,0 +1,412 @@
+object Form1: TForm1
+  Left = 298
+  Height = 581
+  Top = 124
+  Width = 636
+  BorderStyle = bsSingle
+  Caption = 'Droo'
+  ClientHeight = 561
+  ClientWidth = 636
+  Menu = MainMenu1
+  OnCreate = FormCreate
+  LCLVersion = '1.0.1.3'
+  object GroupBox1: TGroupBox
+    Left = 16
+    Height = 200
+    Top = 280
+    Width = 305
+    Caption = 'База данных'
+    ClientHeight = 182
+    ClientWidth = 301
+    TabOrder = 0
+    object DBUser: TLabeledEdit
+      Left = 126
+      Height = 23
+      Top = 48
+      Width = 152
+      EditLabel.AnchorSideTop.Control = DBUser
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = DBUser
+      EditLabel.AnchorSideBottom.Control = DBUser
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 45
+      EditLabel.Height = 16
+      EditLabel.Top = 51
+      EditLabel.Width = 78
+      EditLabel.Caption = 'Пользователь'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 0
+    end
+    object DBServer: TLabeledEdit
+      Left = 126
+      Height = 23
+      Top = 16
+      Width = 152
+      EditLabel.AnchorSideTop.Control = DBServer
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = DBServer
+      EditLabel.AnchorSideBottom.Control = DBServer
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 64
+      EditLabel.Height = 16
+      EditLabel.Top = 19
+      EditLabel.Width = 59
+      EditLabel.Caption = 'Сервер БД'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 1
+    end
+    object DBPassw: TMaskEdit
+      Left = 126
+      Height = 23
+      Top = 80
+      Width = 152
+      CharCase = ecNormal
+      MaxLength = 0
+      TabOrder = 2
+      SpaceChar = '_'
+    end
+    object Label1: TLabel
+      Left = 78
+      Height = 16
+      Top = 80
+      Width = 43
+      Caption = 'Пароль'
+      ParentColor = False
+    end
+    object DBName: TLabeledEdit
+      Left = 126
+      Height = 23
+      Top = 112
+      Width = 152
+      EditLabel.AnchorSideTop.Control = DBName
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = DBName
+      EditLabel.AnchorSideBottom.Control = DBName
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 80
+      EditLabel.Height = 16
+      EditLabel.Top = 115
+      EditLabel.Width = 43
+      EditLabel.Caption = 'Имя БД'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 3
+    end
+    object DBPrefix: TLabeledEdit
+      Left = 126
+      Height = 23
+      Top = 144
+      Width = 80
+      EditLabel.AnchorSideTop.Control = DBPrefix
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = DBPrefix
+      EditLabel.AnchorSideBottom.Control = DBPrefix
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 12
+      EditLabel.Height = 16
+      EditLabel.Top = 147
+      EditLabel.Width = 111
+      EditLabel.Caption = 'Префикс таблиц БД'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 4
+    end
+  end
+  object LblConfig: TLabel
+    Left = 24
+    Height = 16
+    Top = 14
+    Width = 56
+    Caption = 'Config file'
+    ParentColor = False
+  end
+  object GroupBox2: TGroupBox
+    Left = 344
+    Height = 194
+    Top = 280
+    Width = 280
+    Caption = 'Сайт'
+    ClientHeight = 176
+    ClientWidth = 276
+    TabOrder = 1
+    object SiteName: TLabeledEdit
+      Left = 100
+      Height = 23
+      Top = 16
+      Width = 152
+      EditLabel.AnchorSideTop.Control = SiteName
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = SiteName
+      EditLabel.AnchorSideBottom.Control = SiteName
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 11
+      EditLabel.Height = 16
+      EditLabel.Top = 19
+      EditLabel.Width = 86
+      EditLabel.Caption = 'Название сайта'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 0
+    end
+    object GroupBox3: TGroupBox
+      Left = 14
+      Height = 120
+      Top = 48
+      Width = 240
+      Caption = 'Админ'
+      ClientHeight = 102
+      ClientWidth = 236
+      TabOrder = 1
+      object AdminLogin: TLabeledEdit
+        Left = 70
+        Height = 23
+        Top = 8
+        Width = 152
+        EditLabel.AnchorSideTop.Control = AdminLogin
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = AdminLogin
+        EditLabel.AnchorSideBottom.Control = AdminLogin
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 32
+        EditLabel.Height = 16
+        EditLabel.Top = 11
+        EditLabel.Width = 35
+        EditLabel.Caption = 'Логин'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        TabOrder = 0
+      end
+      object AdminPassw: TMaskEdit
+        Left = 70
+        Height = 23
+        Top = 40
+        Width = 154
+        CharCase = ecNormal
+        MaxLength = 0
+        TabOrder = 1
+        SpaceChar = '_'
+      end
+      object Label2: TLabel
+        Left = 22
+        Height = 16
+        Top = 47
+        Width = 43
+        Caption = 'Пароль'
+        ParentColor = False
+      end
+      object AdminEmail: TLabeledEdit
+        Left = 70
+        Height = 23
+        Top = 72
+        Width = 152
+        EditLabel.AnchorSideTop.Control = AdminEmail
+        EditLabel.AnchorSideTop.Side = asrCenter
+        EditLabel.AnchorSideRight.Control = AdminEmail
+        EditLabel.AnchorSideBottom.Control = AdminEmail
+        EditLabel.AnchorSideBottom.Side = asrBottom
+        EditLabel.Left = 32
+        EditLabel.Height = 16
+        EditLabel.Top = 75
+        EditLabel.Width = 35
+        EditLabel.Caption = 'e-mail'
+        EditLabel.ParentColor = False
+        LabelPosition = lpLeft
+        TabOrder = 2
+      end
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 538
+    Width = 636
+    Panels = <>
+  end
+  object Button1: TButton
+    Left = 15
+    Height = 33
+    Top = 488
+    Width = 208
+    Caption = 'НАЧАТЬ'
+    TabOrder = 3
+  end
+  object GroupBox4: TGroupBox
+    Left = 15
+    Height = 232
+    Top = 40
+    Width = 609
+    Caption = 'Общие'
+    ClientHeight = 214
+    ClientWidth = 605
+    TabOrder = 4
+    object serverspath: TLabeledEdit
+      Left = 135
+      Height = 23
+      Top = 8
+      Width = 456
+      EditLabel.AnchorSideTop.Control = serverspath
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = serverspath
+      EditLabel.AnchorSideBottom.Control = serverspath
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 11
+      EditLabel.Height = 16
+      EditLabel.Top = 11
+      EditLabel.Width = 121
+      EditLabel.Caption = 'Директория серверов'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 0
+    end
+    object nesteddir: TLabeledEdit
+      Left = 135
+      Height = 23
+      Top = 40
+      Width = 80
+      EditLabel.AnchorSideTop.Control = nesteddir
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = nesteddir
+      EditLabel.AnchorSideBottom.Control = nesteddir
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 0
+      EditLabel.Height = 16
+      EditLabel.Top = 43
+      EditLabel.Width = 132
+      EditLabel.Caption = 'Внутренняя директория'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 1
+    end
+    object Modulelist: TMemo
+      Left = 133
+      Height = 60
+      Top = 72
+      Width = 462
+      Lines.Strings = (
+        'cck,views,lang,ubercart'
+      )
+      ScrollBars = ssAutoBoth
+      TabOrder = 2
+    end
+    object Label3: TLabel
+      Left = 79
+      Height = 16
+      Top = 72
+      Width = 45
+      Caption = 'Модули'
+      ParentColor = False
+    end
+    object BeforeExec: TMemo
+      Left = 133
+      Height = 60
+      Top = 144
+      Width = 462
+      Lines.Strings = (
+        'cck,views,lang,ubercart'
+      )
+      ScrollBars = ssAutoBoth
+      TabOrder = 3
+    end
+  end
+  object Label4: TLabel
+    Left = 32
+    Height = 16
+    Top = 200
+    Width = 111
+    Caption = 'Код перед запуском'
+    ParentColor = False
+  end
+  object MainMenu1: TMainMenu
+    left = 328
+    top = 8
+    object MenuItem1: TMenuItem
+      Caption = 'Главное'
+      object MenuItem3: TMenuItem
+        Caption = 'Открыть конфигурацию'
+        OnClick = MenuItem3Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Сохранить конфигурацию'
+        OnClick = MenuItem4Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'Сохранить'
+        OnClick = MenuItem5Click
+      end
+      object MenuItem6: TMenuItem
+        Caption = 'Выход'
+        OnClick = MenuItem6Click
+      end
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'О программе'
+    end
+  end
+  object ConfigManager: TIniPropStorage
+    StoredValues = <    
+      item
+        Name = 'ServDir'
+        Value = 'C:\WebServers\home'
+      end    
+      item
+        Name = 'NestedDir'
+        Value = 'www'
+      end    
+      item
+        Name = 'Modulelist'
+        Value = 'cck,vietws,ubercar'
+      end    
+      item
+        Name = 'CodeBefore'
+        Value = '@SET PATH=%PATH%;C:\ProgramData\Drush\'
+      end    
+      item
+        Name = 'DBServer'
+        Value = 'localhost'
+      end    
+      item
+        Name = 'DBUser'
+        Value = 'root'
+      end    
+      item
+        Name = 'DBPassw'
+      end    
+      item
+        Name = 'DBName'
+      end    
+      item
+        Name = 'DBPrefix'
+        Value = 'dru_'
+      end    
+      item
+        Name = 'SiteName'
+      end    
+      item
+        Name = 'AdminLogin'
+        Value = 'admin'
+      end    
+      item
+        Name = 'AdminPassw'
+      end    
+      item
+        Name = 'AdminEmail'
+      end>
+    IniFileName = 'Droo.ini'
+    OnSavingProperties = ConfigManagerSavingProperties
+    OnRestoringProperties = ConfigManagerRestoringProperties
+    left = 592
+    top = 8
+  end
+  object IniSaveDialog: TSaveDialog
+    Filter = 'ini.*|ini.*'
+    left = 144
+    top = 8
+  end
+  object IniOpenDialog: TOpenDialog
+    Filter = 'ini.*|ini.*'
+    left = 232
+    top = 8
+  end
+end

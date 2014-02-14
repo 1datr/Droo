@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <Compiler Value="D:\lazarus\fpc\2.6.0\bin\x86_64-win64\fpc.exe" Date="1092383132"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -vewnhi -l -FiC:\Users\anton\Documents\lazarus\droo\lib\x86_64-win64 -FuD:\lazarus\lcl\units\x86_64-win64\win32 -FuD:\lazarus\lcl\units\x86_64-win64 -FuD:\lazarus\components\lazutils\lib\x86_64-win64 -FuD:\lazarus\packager\units\x86_64-win64 -FuC:\Users\anton\Documents\lazarus\droo\ -FUC:\Users\anton\Documents\lazarus\droo\lib\x86_64-win64\ -dLCL -dLCLwin32 droo.lpr"/>
+</CONFIG>

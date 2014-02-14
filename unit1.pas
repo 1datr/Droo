@@ -1,0 +1,161 @@
+unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Menus,
+  StdCtrls, ExtCtrls, MaskEdit, ComCtrls, IniPropStorage;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    AdminLogin: TLabeledEdit;
+    AdminEmail: TLabeledEdit;
+    AdminPassw: TMaskEdit;
+    Button1: TButton;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
+    GroupBox4: TGroupBox;
+    ConfigManager: TIniPropStorage;
+    Label1: TLabel;
+    DBName: TLabeledEdit;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Modulelist: TMemo;
+    BeforeExec: TMemo;
+    IniOpenDialog: TOpenDialog;
+    IniSaveDialog: TSaveDialog;
+    serverspath: TLabeledEdit;
+    nesteddir: TLabeledEdit;
+    LblConfig: TLabel;
+    SiteName: TLabeledEdit;
+    DBPrefix: TLabeledEdit;
+    DBUser: TLabeledEdit;
+    DBServer: TLabeledEdit;
+    MainMenu1: TMainMenu;
+    DBPassw: TMaskEdit;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    StatusBar1: TStatusBar;
+    procedure ConfigManagerRestoringProperties(Sender: TObject);
+    procedure ConfigManagerSavingProperties(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
+    procedure MenuItem6Click(Sender: TObject);
+  private
+    { private declarations }
+    procedure FillControls;       // fill all controlls
+    procedure FillIni;            // fill inifile manager fields
+  public
+    { public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.MenuItem3Click(Sender: TObject);
+begin
+  If self.IniOpenDialog.Execute then
+     begin
+     ConfigManager.IniFileName:=IniOpenDialog.FileName;
+     FillControls;
+     end;
+end;
+
+procedure TForm1.ConfigManagerRestoringProperties(Sender: TObject);
+begin
+     FillControls;
+end;
+
+procedure TForm1.ConfigManagerSavingProperties(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.MenuItem4Click(Sender: TObject);
+begin
+  If IniSaveDialog.Execute then
+     begin
+     FillIni;
+     ConfigManager.IniFileName:=IniSaveDialog.FileName;
+     ConfigManager.Save;
+     self.LblConfig.Caption:=self.ConfigManager.IniFileName;
+     end;
+end;
+
+procedure TForm1.MenuItem5Click(Sender: TObject);
+begin
+    FillIni;
+    ConfigManager.Save;
+end;
+
+procedure TForm1.MenuItem6Click(Sender: TObject);
+begin
+  self.Close;
+end;
+
+procedure TForm1.FillControls;
+begin
+     self.LblConfig.Caption:=self.ConfigManager.IniFileName;
+
+     serverspath.Text:=self.ConfigManager.StoredValue['ServDir'];
+     nesteddir.Text:=self.ConfigManager.StoredValue['NestedDir'];
+     Modulelist.Text:=self.ConfigManager.StoredValue['Modulelist'];
+     BeforeExec.Text:=self.ConfigManager.StoredValue['CodeBefore'];
+
+     DBServer.Text:=self.ConfigManager.StoredValue['DBServer'];
+     DBUser.Text:=self.ConfigManager.StoredValue['DBUser'];
+     DBPassw.Text:=self.ConfigManager.StoredValue['DBPassw'];
+     DBName.Text:=self.ConfigManager.StoredValue['DBName'];
+     DBPrefix.Text:=self.ConfigManager.StoredValue['DBprefix'];
+
+     SiteName.Text:=self.ConfigManager.StoredValue['SiteName'];
+     AdminLogin.Text:=self.ConfigManager.StoredValue['AdminLogin'];
+     AdminPassw.Text:=self.ConfigManager.StoredValue['AdminPassw'];
+     AdminEmail.Text:=self.ConfigManager.StoredValue['AdminEmail'];
+end;
+
+procedure TForm1.FillIni;
+begin
+     self.ConfigManager.StoredValue['ServDir']:=serverspath.Text;
+     self.ConfigManager.StoredValue['NestedDir']:=nesteddir.Text;
+     self.ConfigManager.StoredValue['Modulelist']:=Modulelist.Text;
+     self.ConfigManager.StoredValue['CodeBefore']:=BeforeExec.Text;
+
+     self.ConfigManager.StoredValue['DBServer']:=DBServer.Text;
+     self.ConfigManager.StoredValue['DBUser']:=DBUser.Text;
+     self.ConfigManager.StoredValue['DBPassw']:=DBPassw.Text;
+     self.ConfigManager.StoredValue['DBName']:=DBName.Text;
+     self.ConfigManager.StoredValue['DBprefix']:=DBPrefix.Text;
+
+     self.ConfigManager.StoredValue['SiteName']:=SiteName.Text;
+     self.ConfigManager.StoredValue['AdminLogin']:=AdminLogin.Text;
+     self.ConfigManager.StoredValue['AdminPassw']:=AdminPassw.Text;
+     self.ConfigManager.StoredValue['AdminEmail']:=AdminEmail.Text;
+end;
+
+end.
+
