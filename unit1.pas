@@ -153,6 +153,11 @@ begin
      Application.MessageBox('Введите параметр язык','Не готово к пуску',MB_ICONWARNING);
      Result:=false;
      end
+  else if(AdminEmail.Text='') then
+     begin
+     Application.MessageBox('Введите параметр e-mail администратора','Не готово к пуску',MB_ICONWARNING);
+     Result:=false;
+     end
   else if(AdminPassw.Text='') then
      begin
      Application.MessageBox('Пароль администратора не должен быть пустым','Не готово к пуску',MB_ICONWARNING);
@@ -180,7 +185,7 @@ begin
      begin
         // схема под денвер
        // Chdir(serverspath.Text);
-        if FileExists(serverspath.Text+'\'+host.Text)  then
+        {if FileExists(serverspath.Text+'\'+host.Text)  then
         begin
            // Отображение диалога с подтверждением
            buttonSelected := MessageDlg('Такой сайт уже есть. Заменить его?',mtError, mbOKCancel, 0);
@@ -188,7 +193,7 @@ begin
            // удалить папку чтобы качать по новой
            if buttonSelected = mrOK     then
               RmDir(host.Text);
-        end;
+        end;  }
         if not FileExists(host.Text)  then
            begin
            PBMakeSite.Max:=100;
@@ -196,6 +201,7 @@ begin
            // качнуть друпал
            PBMakeSite.Position:=2;
            RunSomeScript(BeforeExec.Text+char(10)+char(13)
+           +'rmdir '+serverspath.Text+'\'+host.Text +char(10)+char(13)
            +'cd '+serverspath.Text+char(10)+char(13)
            +'md '+host.Text+char(10)+char(13)
            +'cd '+host.Text+char(10)+char(13)

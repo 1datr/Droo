@@ -1,8 +1,9 @@
 object Form2: TForm2
   Left = 213
-  Height = 249
+  Height = 177
   Top = 193
   Width = 332
+  BorderStyle = bsDialog
   Caption = 'Form2'
   LCLVersion = '1.0.1.3'
 end
