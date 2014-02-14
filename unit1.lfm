@@ -396,6 +396,7 @@ object Form1: TForm1
     IniFileName = 'Droo.ini'
     OnSavingProperties = ConfigManagerSavingProperties
     OnRestoringProperties = ConfigManagerRestoringProperties
+    OnRestoreProperties = ConfigManagerRestoreProperties
     left = 592
     top = 8
   end

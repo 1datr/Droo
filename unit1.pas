@@ -47,6 +47,7 @@ type
     MenuItem5: TMenuItem;
     MenuItem6: TMenuItem;
     StatusBar1: TStatusBar;
+    procedure ConfigManagerRestoreProperties(Sender: TObject);
     procedure ConfigManagerRestoringProperties(Sender: TObject);
     procedure ConfigManagerSavingProperties(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -88,6 +89,11 @@ end;
 procedure TForm1.ConfigManagerRestoringProperties(Sender: TObject);
 begin
      FillControls;
+end;
+
+procedure TForm1.ConfigManagerRestoreProperties(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.ConfigManagerSavingProperties(Sender: TObject);

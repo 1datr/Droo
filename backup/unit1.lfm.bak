@@ -400,12 +400,12 @@ object Form1: TForm1
     top = 8
   end
   object IniSaveDialog: TSaveDialog
-    Filter = 'ini.*|ini.*'
+    Filter = '*.ini|*.ini'
     left = 144
     top = 8
   end
   object IniOpenDialog: TOpenDialog
-    Filter = 'ini.*|ini.*'
+    Filter = '*.ini|*.ini'
     left = 232
     top = 8
   end
