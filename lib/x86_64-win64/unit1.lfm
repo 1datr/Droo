@@ -1,24 +1,25 @@
 object Form1: TForm1
-  Left = 298
-  Height = 581
-  Top = 124
-  Width = 636
+  Left = 256
+  Height = 573
+  Top = 105
+  Width = 613
   BorderStyle = bsSingle
   Caption = 'Droo'
-  ClientHeight = 561
-  ClientWidth = 636
+  ClientHeight = 553
+  ClientWidth = 613
   Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '1.0.1.3'
   object GroupBox1: TGroupBox
-    Left = 16
-    Height = 200
-    Top = 280
+    Left = 15
+    Height = 194
+    Top = 264
     Width = 305
     Caption = 'База данных'
-    ClientHeight = 182
+    ClientHeight = 176
     ClientWidth = 301
     TabOrder = 0
+    OnClick = GroupBox1Click
     object DBUser: TLabeledEdit
       Left = 126
       Height = 23
@@ -29,11 +30,11 @@ object Form1: TForm1
       EditLabel.AnchorSideRight.Control = DBUser
       EditLabel.AnchorSideBottom.Control = DBUser
       EditLabel.AnchorSideBottom.Side = asrBottom
-      EditLabel.Left = 45
+      EditLabel.Left = 27
       EditLabel.Height = 16
       EditLabel.Top = 51
-      EditLabel.Width = 78
-      EditLabel.Caption = 'Пользователь'
+      EditLabel.Width = 96
+      EditLabel.Caption = 'Пользователь БД'
       EditLabel.ParentColor = False
       LabelPosition = lpLeft
       TabOrder = 0
@@ -115,20 +116,20 @@ object Form1: TForm1
     end
   end
   object LblConfig: TLabel
-    Left = 24
+    Left = 16
     Height = 16
-    Top = 14
+    Top = 8
     Width = 56
     Caption = 'Config file'
     ParentColor = False
   end
   object GroupBox2: TGroupBox
-    Left = 344
-    Height = 194
-    Top = 280
+    Left = 336
+    Height = 224
+    Top = 264
     Width = 280
     Caption = 'Сайт'
-    ClientHeight = 176
+    ClientHeight = 206
     ClientWidth = 276
     TabOrder = 1
     object SiteName: TLabeledEdit
@@ -153,7 +154,7 @@ object Form1: TForm1
     object GroupBox3: TGroupBox
       Left = 14
       Height = 120
-      Top = 48
+      Top = 80
       Width = 240
       Caption = 'Админ'
       ClientHeight = 102
@@ -216,36 +217,57 @@ object Form1: TForm1
         TabOrder = 2
       end
     end
+    object SiteLang: TLabeledEdit
+      Left = 102
+      Height = 23
+      Top = 48
+      Width = 150
+      EditLabel.AnchorSideTop.Control = SiteLang
+      EditLabel.AnchorSideTop.Side = asrCenter
+      EditLabel.AnchorSideRight.Control = SiteLang
+      EditLabel.AnchorSideBottom.Control = SiteLang
+      EditLabel.AnchorSideBottom.Side = asrBottom
+      EditLabel.Left = 71
+      EditLabel.Height = 16
+      EditLabel.Top = 51
+      EditLabel.Width = 28
+      EditLabel.Caption = 'Язык'
+      EditLabel.ParentColor = False
+      LabelPosition = lpLeft
+      TabOrder = 2
+    end
   end
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 538
-    Width = 636
+    Top = 530
+    Width = 613
     Panels = <>
   end
   object Button1: TButton
-    Left = 15
+    Left = 16
     Height = 33
-    Top = 488
+    Top = 496
     Width = 208
     Caption = 'НАЧАТЬ'
+    OnClick = Button1Click
     TabOrder = 3
   end
   object GroupBox4: TGroupBox
-    Left = 15
+    Left = 16
     Height = 232
-    Top = 40
+    Top = 24
     Width = 609
     Caption = 'Общие'
     ClientHeight = 214
     ClientWidth = 605
     TabOrder = 4
+    OnClick = GroupBox4Click
     object serverspath: TLabeledEdit
       Left = 135
       Height = 23
       Top = 8
-      Width = 456
+      Width = 431
       EditLabel.AnchorSideTop.Control = serverspath
       EditLabel.AnchorSideTop.Side = asrCenter
       EditLabel.AnchorSideRight.Control = serverspath
@@ -318,6 +340,43 @@ object Form1: TForm1
     Caption = 'Код перед запуском'
     ParentColor = False
   end
+  object ToggleBox1: TToggleBox
+    Left = 584
+    Height = 23
+    Top = 48
+    Width = 24
+    Caption = '..'
+    OnChange = ToggleBox1Change
+    TabOrder = 5
+  end
+  object host: TLabeledEdit
+    Left = 88
+    Height = 23
+    Top = 464
+    Width = 80
+    EditLabel.AnchorSideTop.Control = host
+    EditLabel.AnchorSideTop.Side = asrCenter
+    EditLabel.AnchorSideRight.Control = host
+    EditLabel.AnchorSideBottom.Control = host
+    EditLabel.AnchorSideBottom.Side = asrBottom
+    EditLabel.Left = 26
+    EditLabel.Height = 16
+    EditLabel.Top = 467
+    EditLabel.Width = 59
+    EditLabel.Caption = 'Хост сайта'
+    EditLabel.ParentColor = False
+    LabelPosition = lpLeft
+    TabOrder = 6
+  end
+  object PBMakeSite: TProgressBar
+    Left = 0
+    Height = 14
+    Top = 536
+    Width = 613
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    TabOrder = 7
+    Visible = False
+  end
   object MainMenu1: TMainMenu
     left = 328
     top = 8
@@ -356,11 +415,11 @@ object Form1: TForm1
       end    
       item
         Name = 'Modulelist'
-        Value = 'cck,vietws,ubercar'
+        Value = 'cck,views,ubercart'
       end    
       item
         Name = 'CodeBefore'
-        Value = '@SET PATH=%PATH%;C:\ProgramData\Drush\'
+        Value = '@SET PATH=%PATH%;C:\ProgramData\Drush\;C:\Drush\GnuWin32\bin;C:\Drush\Php;C:\Drush\cwRsync\bin'
       end    
       item
         Name = 'DBServer'
@@ -384,6 +443,10 @@ object Form1: TForm1
         Name = 'SiteName'
       end    
       item
+        Name = 'SiteLang'
+        Value = 'ru'
+      end    
+      item
         Name = 'AdminLogin'
         Value = 'admin'
       end    
@@ -393,9 +456,9 @@ object Form1: TForm1
       item
         Name = 'AdminEmail'
       end>
-    IniFileName = 'Droo.ini'
     OnSavingProperties = ConfigManagerSavingProperties
     OnRestoringProperties = ConfigManagerRestoringProperties
+    OnRestoreProperties = ConfigManagerRestoreProperties
     left = 592
     top = 8
   end
@@ -407,6 +470,10 @@ object Form1: TForm1
   object IniOpenDialog: TOpenDialog
     Filter = '*.ini|*.ini'
     left = 232
+    top = 8
+  end
+  object SelectDirectoryDialog: TSelectDirectoryDialog
+    left = 456
     top = 8
   end
 end
